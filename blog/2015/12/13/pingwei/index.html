@@ -3,11 +3,12 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>徐平伟 - 徐平伟Android技术博客</title>
+	<title>Android5.0+点击Button的水波效果 - 徐平伟Android技术博客</title>
 	<meta name="author" content="徐平伟">
 
 	
-	<meta name="description" content="你好 您可以学到你想要的 加粗 Dec 13th, 2015 android, html ">
+	<meta name="description" content="Android5.0+点击Button的水波效果 1.开发工具：开发工具：Android studio 2.在build.gradle文件中添加 依赖： 在gradle文件中添加以来包名链接 1
+compile 'com.balysv:material-ripple:1.0.2' 3.文正代码： &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -74,12 +75,72 @@
 		
 	
 	<div id="content" class="inner"><article class="post">
-	<h2 class="title">徐平伟</h2>
-	<div class="entry-content"><h1>你好</h1>
+	<h2 class="title">Android5.0+点击Button的水波效果</h2>
+	<div class="entry-content"><h1>Android5.0+点击Button的水波效果</h1>
 
-<h2>您可以学到你想要的</h2>
+<h3>1.开发工具：开发工具：Android studio</h3>
 
-<p><strong>加粗</strong></p>
+<h3>2.在build.gradle文件中添加</h3>
+
+<p>依赖：</p>
+
+<figure class='code'><figcaption><span>在gradle文件中添加以来包名</span><a href='http://xupingwei.github.io/'>链接 </a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>compile 'com.balysv:material-ripple:1.0.2'</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>3.文正代码：</h3>
+
+<figure class='code'><figcaption><span>正文代码 </span><a href='http://xupingwei.github.io/'>链接 </a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;com.balysv.materialripple.MaterialRippleLayout
+</span><span class='line'>
+</span><span class='line'>  android:layout_width="70dp" 
+</span><span class='line'>  android:layout_height="50dp" 
+</span><span class='line'>  android:layout_alignParentRight="true" 
+</span><span class='line'>  android:layout_centerVertical="true" 
+</span><span class='line'>  android:background="@null"
+</span><span class='line'>  android:paddingLeft="10dp" 
+</span><span class='line'>  android:paddingRight="10dp" 
+</span><span class='line'>  app:mrl_rippleColor="@color/white" 
+</span><span class='line'>  app:mrl_rippleDelayClick="false" 
+</span><span class='line'>  app:mrl_rippleDuration="300" 
+</span><span class='line'>  app:mrl_rippleFadeDuration="75" 
+</span><span class='line'>  app:mrl_rippleOverlay="true">
+</span><span class='line'>  
+</span><span class='line'>  &lt;Button android:id="@+id/bt_my_profile_save" 
+</span><span class='line'>      android:layout_width="match_parent" 
+</span><span class='line'>      android:layout_height="match_parent" 
+</span><span class='line'>      android:background="@null"
+</span><span class='line'>      android:text="保存" 
+</span><span class='line'>      android:textColor="@color/white"
+</span><span class='line'>      android:textSize="16sp" />
+</span><span class='line'>
+</span><span class='line'>&lt;/com.balysv.materialripple.MaterialRippleLayout></span></code></pre></td></tr></table></div></figure>
+
+
+
 </div>
 
 
@@ -93,7 +154,7 @@ Dec 13th, 2015</div>
 	<div class="tags">
 
 
-	<a class='category' href='/blog/categories/android/'>android</a>, <a class='category' href='/blog/categories/html/'>html</a>
+	<a class='category' href='/blog/categories/android/'>android</a>
 
 
 </div>
@@ -131,7 +192,7 @@ Dec 13th, 2015</div>
 <section id="comment">
     <h2 class="title">Comments</h2>
     <div id="disqus_thread" aria-live="polite"><!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="/blog/2015/12/13/pingwei" data-title="徐平伟" data-url="http://xupingwei.github.io/blog/2015/12/13/pingwei/"></div>
+	<div class="ds-thread" data-thread-key="/blog/2015/12/13/pingwei" data-title="Android5.0+点击Button的水波效果" data-url="http://xupingwei.github.io/blog/2015/12/13/pingwei/"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">

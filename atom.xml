@@ -4,7 +4,7 @@
   <title><![CDATA[徐平伟Android技术博客]]></title>
   <link href="http://xupingwei.github.io/atom.xml" rel="self"/>
   <link href="http://xupingwei.github.io/"/>
-  <updated>2015-12-13T19:20:04+08:00</updated>
+  <updated>2015-12-13T19:46:57+08:00</updated>
   <id>http://xupingwei.github.io/</id>
   <author>
     <name><![CDATA[徐平伟]]></name>
@@ -14,15 +14,75 @@
 
   
   <entry>
-    <title type="html"><![CDATA[徐平伟]]></title>
+    <title type="html"><![CDATA[Android5.0+点击Button的水波效果]]></title>
     <link href="http://xupingwei.github.io/blog/2015/12/13/pingwei/"/>
     <updated>2015-12-13T17:18:56+08:00</updated>
     <id>http://xupingwei.github.io/blog/2015/12/13/pingwei</id>
-    <content type="html"><![CDATA[<h1>你好</h1>
+    <content type="html"><![CDATA[<h1>Android5.0+点击Button的水波效果</h1>
 
-<h2>您可以学到你想要的</h2>
+<h3>1.开发工具：开发工具：Android studio</h3>
 
-<p><strong>加粗</strong></p>
+<h3>2.在build.gradle文件中添加</h3>
+
+<p>依赖：</p>
+
+<figure class='code'><figcaption><span>在gradle文件中添加以来包名</span><a href='http://xupingwei.github.io/'>链接 </a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>compile 'com.balysv:material-ripple:1.0.2'</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>3.文正代码：</h3>
+
+<figure class='code'><figcaption><span>正文代码 </span><a href='http://xupingwei.github.io/'>链接 </a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;com.balysv.materialripple.MaterialRippleLayout
+</span><span class='line'>
+</span><span class='line'>  android:layout_width="70dp" 
+</span><span class='line'>  android:layout_height="50dp" 
+</span><span class='line'>  android:layout_alignParentRight="true" 
+</span><span class='line'>  android:layout_centerVertical="true" 
+</span><span class='line'>  android:background="@null"
+</span><span class='line'>  android:paddingLeft="10dp" 
+</span><span class='line'>  android:paddingRight="10dp" 
+</span><span class='line'>  app:mrl_rippleColor="@color/white" 
+</span><span class='line'>  app:mrl_rippleDelayClick="false" 
+</span><span class='line'>  app:mrl_rippleDuration="300" 
+</span><span class='line'>  app:mrl_rippleFadeDuration="75" 
+</span><span class='line'>  app:mrl_rippleOverlay="true">
+</span><span class='line'>  
+</span><span class='line'>  &lt;Button android:id="@+id/bt_my_profile_save" 
+</span><span class='line'>      android:layout_width="match_parent" 
+</span><span class='line'>      android:layout_height="match_parent" 
+</span><span class='line'>      android:background="@null"
+</span><span class='line'>      android:text="保存" 
+</span><span class='line'>      android:textColor="@color/white"
+</span><span class='line'>      android:textSize="16sp" />
+</span><span class='line'>
+</span><span class='line'>&lt;/com.balysv.materialripple.MaterialRippleLayout></span></code></pre></td></tr></table></div></figure>
+
+
+
 ]]></content>
   </entry>
   
