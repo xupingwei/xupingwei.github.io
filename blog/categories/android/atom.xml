@@ -4,7 +4,7 @@
   <title><![CDATA[Category: android | 徐平伟Android技术博客]]></title>
   <link href="http://xupingwei.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://xupingwei.github.io/"/>
-  <updated>2015-12-13T21:20:13+08:00</updated>
+  <updated>2015-12-13T21:21:34+08:00</updated>
   <id>http://xupingwei.github.io/</id>
   <author>
     <name><![CDATA[徐平伟]]></name>
@@ -59,7 +59,7 @@
 </span><span class='line'>
 </span><span class='line'><span class="nd">@Override</span>
 </span><span class='line'>
-</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onScrollStateChanged</span><span class="o">(</span><span class="n">RecyclerView</span>           <span class="n">recyclerView</span><span class="o">,</span> <span class="kt">int</span> <span class="n">newState</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onScrollStateChanged</span><span class="o">(</span><span class="n">RecyclerView</span> <span class="n">recyclerView</span><span class="o">,</span> <span class="kt">int</span> <span class="n">newState</span><span class="o">)</span> <span class="o">{</span>
 </span><span class='line'>   <span class="kd">super</span><span class="o">.</span><span class="na">onScrollStateChanged</span><span class="o">(</span><span class="n">recyclerView</span><span class="o">,</span><span class="n">newState</span><span class="o">);</span>
 </span><span class='line'>   <span class="k">if</span> <span class="o">(</span><span class="n">newState</span> <span class="o">==</span> <span class="n">RecyclerView</span><span class="o">.</span><span class="na">SCROLL_STATE_IDLE</span> <span class="o">&amp;</span><span class="n">amp</span><span class="o">;&amp;</span><span class="n">amp</span><span class="o">;</span> <span class="n">lastItem</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span>            <span class="n">waterFallAdapter</span><span class="o">.</span><span class="na">getItemCount</span><span class="o">())</span> <span class="o">{</span>
 </span><span class='line'>        <span class="n">loadingLayout</span><span class="o">.</span><span class="na">setVisibility</span><span class="o">(</span><span class="n">View</span><span class="o">.</span><span class="na">VISIBLE</span><span class="o">);</span>
