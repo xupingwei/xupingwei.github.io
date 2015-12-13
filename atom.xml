@@ -4,7 +4,7 @@
   <title><![CDATA[徐平伟Android技术博客]]></title>
   <link href="http://xupingwei.github.io/atom.xml" rel="self"/>
   <link href="http://xupingwei.github.io/"/>
-  <updated>2015-12-13T21:21:34+08:00</updated>
+  <updated>2015-12-13T21:28:37+08:00</updated>
   <id>http://xupingwei.github.io/</id>
   <author>
     <name><![CDATA[徐平伟]]></name>
@@ -12,6 +12,68 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Android中获取手机联系人的优化]]></title>
+    <link href="http://xupingwei.github.io/blog/2015/12/14/01/"/>
+    <updated>2015-12-14T17:18:56+08:00</updated>
+    <id>http://xupingwei.github.io/blog/2015/12/14/01</id>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span>代码</span><a href='http://blog.csdn.net/pingwei124/article/details/45748065'>链接 </a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">temp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;();</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">String</span><span class="o">[]</span> <span class="n">phoneNumberProjection</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]{</span>
+</span><span class='line'>        <span class="n">ContactsContract</span><span class="o">.</span><span class="na">CommonDataKinds</span><span class="o">.</span><span class="na">Phone</span><span class="o">.</span><span class="na">CONTACT_ID</span><span class="o">,</span>
+</span><span class='line'>        <span class="n">ContactsContract</span><span class="o">.</span><span class="na">CommonDataKinds</span><span class="o">.</span><span class="na">Phone</span><span class="o">.</span><span class="na">NUMBER</span><span class="o">,</span>
+</span><span class='line'>        <span class="n">ContactsContract</span><span class="o">.</span><span class="na">Contacts</span><span class="o">.</span><span class="na">DISPLAY_NAME</span><span class="o">};</span>
+</span><span class='line'><span class="n">Cursor</span> <span class="n">c</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getContentResolver</span><span class="o">().</span><span class="na">query</span><span class="o">()</span>
+</span><span class='line'>        <span class="n">ContactsContract</span><span class="o">.</span><span class="na">CommonDataKinds</span><span class="o">.</span><span class="na">Phone</span><span class="o">.</span><span class="na">CONTENT_URI</span><span class="o">,</span>
+</span><span class='line'>        <span class="n">phoneNumberProjection</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span><span class='line'><span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kt">long</span> <span class="n">startTime</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+</span><span class='line'>    <span class="k">if</span> <span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">moveToFirst</span><span class="o">())</span> <span class="o">{</span>
+</span><span class='line'>        <span class="k">do</span> <span class="o">{</span>
+</span><span class='line'>            <span class="n">String</span> <span class="n">contactId</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+</span><span class='line'>            <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+</span><span class='line'>            <span class="n">String</span> <span class="n">number</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+</span><span class='line'>            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">contactId</span> <span class="o">+</span> <span class="s">&quot;:&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&quot;\n&quot;</span><span class="o">);</span>
+</span><span class='line'>            <span class="n">temp</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">number</span><span class="o">);</span>
+</span><span class='line'>        <span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">moveToNext</span><span class="o">());</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>    <span class="n">c</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</span><span class='line'>    <span class="kt">long</span> <span class="n">endTime</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+</span><span class='line'>    <span class="kt">long</span> <span class="n">time</span> <span class="o">=</span> <span class="n">endTime</span> <span class="o">-</span> <span class="n">startTime</span><span class="o">;</span>
+</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="kt">float</span><span class="o">)</span> <span class="o">(</span><span class="n">time</span> <span class="o">/</span> <span class="mi">1000</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot;秒&quot;</span><span class="o">);</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'><span class="k">return</span> <span class="n">temp</span><span class="o">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[RecyclerView上拉加载更多数据 ]]></title>
@@ -45,6 +107,7 @@
 <span class='line-number'>23</span>
 <span class='line-number'>24</span>
 <span class='line-number'>25</span>
+<span class='line-number'>26</span>
 </pre></td><td class='code'><pre><code class='java'><span class='line'> <span class="n">mRecyclerView</span><span class="o">.</span><span class="na">setOnScrollListener</span><span class="o">(</span><span class="k">new</span> <span class="n">RecyclerView</span><span class="o">.</span><span class="na">OnScrollListener</span><span class="o">()</span> <span class="o">{</span>
 </span><span class='line'>
 </span><span class='line'>    <span class="kt">int</span><span class="o">[]</span> <span class="n">lastVisibleItem</span><span class="o">;</span>
@@ -54,7 +117,8 @@
 </span><span class='line'>
 </span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onScrollStateChanged</span><span class="o">(</span><span class="n">RecyclerView</span> <span class="n">recyclerView</span><span class="o">,</span> <span class="kt">int</span> <span class="n">newState</span><span class="o">)</span> <span class="o">{</span>
 </span><span class='line'>       <span class="kd">super</span><span class="o">.</span><span class="na">onScrollStateChanged</span><span class="o">(</span><span class="n">recyclerView</span><span class="o">,</span><span class="n">newState</span><span class="o">);</span>
-</span><span class='line'>       <span class="k">if</span> <span class="o">(</span><span class="n">newState</span> <span class="o">==</span> <span class="n">RecyclerView</span><span class="o">.</span><span class="na">SCROLL_STATE_IDLE</span> <span class="o">&amp;&amp;</span> <span class="n">lastItem</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span>            <span class="n">waterFallAdapter</span><span class="o">.</span><span class="na">getItemCount</span><span class="o">())</span> <span class="o">{</span>
+</span><span class='line'>       <span class="k">if</span> <span class="o">(</span><span class="n">newState</span> <span class="o">==</span> <span class="n">RecyclerView</span><span class="o">.</span><span class="na">SCROLL_STATE_IDLE</span> <span class="o">&amp;&amp;</span>
+</span><span class='line'>       <span class="n">lastItem</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">waterFallAdapter</span><span class="o">.</span><span class="na">getItemCount</span><span class="o">())</span> <span class="o">{</span>
 </span><span class='line'>            <span class="n">loadingLayout</span><span class="o">.</span><span class="na">setVisibility</span><span class="o">(</span><span class="n">View</span><span class="o">.</span><span class="na">VISIBLE</span><span class="o">);</span>
 </span><span class='line'>            <span class="n">Message</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Message</span><span class="o">();</span>
 </span><span class='line'>            <span class="n">message</span><span class="o">.</span><span class="na">what</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>

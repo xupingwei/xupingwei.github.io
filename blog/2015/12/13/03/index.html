@@ -31,7 +31,8 @@
 22
 23
 24
-25 mRecyclerView.setOnScrollListener(new RecyclerView. &hellip;">
+25
+26 mRecyclerView.setOnScrollListener(new RecyclerView. &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -126,6 +127,7 @@
 <span class='line-number'>23</span>
 <span class='line-number'>24</span>
 <span class='line-number'>25</span>
+<span class='line-number'>26</span>
 </pre></td><td class='code'><pre><code class='java'><span class='line'> <span class="n">mRecyclerView</span><span class="o">.</span><span class="na">setOnScrollListener</span><span class="o">(</span><span class="k">new</span> <span class="n">RecyclerView</span><span class="o">.</span><span class="na">OnScrollListener</span><span class="o">()</span> <span class="o">{</span>
 </span><span class='line'>
 </span><span class='line'>    <span class="kt">int</span><span class="o">[]</span> <span class="n">lastVisibleItem</span><span class="o">;</span>
@@ -135,7 +137,8 @@
 </span><span class='line'>
 </span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onScrollStateChanged</span><span class="o">(</span><span class="n">RecyclerView</span> <span class="n">recyclerView</span><span class="o">,</span> <span class="kt">int</span> <span class="n">newState</span><span class="o">)</span> <span class="o">{</span>
 </span><span class='line'>       <span class="kd">super</span><span class="o">.</span><span class="na">onScrollStateChanged</span><span class="o">(</span><span class="n">recyclerView</span><span class="o">,</span><span class="n">newState</span><span class="o">);</span>
-</span><span class='line'>       <span class="k">if</span> <span class="o">(</span><span class="n">newState</span> <span class="o">==</span> <span class="n">RecyclerView</span><span class="o">.</span><span class="na">SCROLL_STATE_IDLE</span> <span class="o">&amp;&amp;</span> <span class="n">lastItem</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span>            <span class="n">waterFallAdapter</span><span class="o">.</span><span class="na">getItemCount</span><span class="o">())</span> <span class="o">{</span>
+</span><span class='line'>       <span class="k">if</span> <span class="o">(</span><span class="n">newState</span> <span class="o">==</span> <span class="n">RecyclerView</span><span class="o">.</span><span class="na">SCROLL_STATE_IDLE</span> <span class="o">&amp;&amp;</span>
+</span><span class='line'>       <span class="n">lastItem</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">waterFallAdapter</span><span class="o">.</span><span class="na">getItemCount</span><span class="o">())</span> <span class="o">{</span>
 </span><span class='line'>            <span class="n">loadingLayout</span><span class="o">.</span><span class="na">setVisibility</span><span class="o">(</span><span class="n">View</span><span class="o">.</span><span class="na">VISIBLE</span><span class="o">);</span>
 </span><span class='line'>            <span class="n">Message</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Message</span><span class="o">();</span>
 </span><span class='line'>            <span class="n">message</span><span class="o">.</span><span class="na">what</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
