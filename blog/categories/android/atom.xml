@@ -4,7 +4,7 @@
   <title><![CDATA[Category: android | 徐平伟Android技术博客]]></title>
   <link href="http://www.pingwei.me/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://www.pingwei.me/"/>
-  <updated>2015-12-13T22:50:27+08:00</updated>
+  <updated>2015-12-13T22:54:31+08:00</updated>
   <id>http://www.pingwei.me/</id>
   <author>
     <name><![CDATA[徐平伟]]></name>
@@ -178,7 +178,7 @@
 
 <ul>
 <li>在调用dbUtils.update(&hellip;)时，有时会出现NOT FOUND &ldquo;id"的错误&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-这是因为在执行update方法时，传入的参数出现错误</li>
-<li><p>正确的用法是：
+<li><p>正确的用法是：<!--more-->
 <figure class='code'><figcaption><span>代码  <a href="http://xupingwei.github.io/">http://xupingwei.github.io/</a> 链接 </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -310,6 +310,9 @@
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">compile</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="o">;</span><span class="n">com</span><span class="o">.</span><span class="na">balysv</span><span class="o">:</span><span class="n">material</span><span class="o">-</span><span class="nl">ripple:</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">2</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="o">;</span>
 </span></code></pre></td></tr></table></div></figure></p>
+
+<!--more-->
+
 
 <h3>3.文正代码：</h3>
 
