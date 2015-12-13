@@ -7,8 +7,7 @@
 	<meta name="author" content="徐平伟">
 
 	
-	<meta name="description" content="xUtils在开发过程中DbUtils的使用 1.DbUtils中的save的用法 1）根据官网save的方法很好用 dbUtils.save(userDetails);
-userDetails：实体类的对象&mdash;&mdash;&mdash;&mdash;&mdash; &hellip;">
+	<meta name="description" content="xUtils在开发过程中DbUtils的使用 1.DbUtils中的save的用法 1）根据官网save的方法很好用 代码链接 1 dbUtils.save(userDetails); userDetails：实体类的对象&mdash;&mdash;&mdash;&mdash;&mdash; &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -82,8 +81,12 @@ userDetails：实体类的对象&mdash;&mdash;&mdash;&mdash;&mdash; &hellip;">
 
 <h5>1）根据官网save的方法很好用</h5>
 
+<figure class='code'><figcaption><span>代码</span><a href='http://xupingwei.github.io/'>链接 </a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'> <span class="n">dbUtils</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">userDetails</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 <ul>
-<li>dbUtils.save(userDetails);</li>
 <li>userDetails：实体类的对象&mdash;&mdash;&mdash;&mdash;&mdash;直接调用save方法进行保存，很容易不再啰嗦</li>
 </ul>
 
@@ -104,12 +107,13 @@ userDetails：实体类的对象&mdash;&mdash;&mdash;&mdash;&mdash; &hellip;">
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>dbUtils.update(
-</span><span class='line'>      userDetails,WhereBuilder.b(
-</span><span class='line'>      "phone", "=", userDetails.getPhone()), 
-</span><span class='line'>      "avatarname","username","gender", "birthday", 
-</span><span class='line'>      "business", "grade", "city", "area", "address", 
-</span><span class='line'>      "progress");</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='java'><span class='line'>     <span class="n">dbUtils</span><span class="o">.</span><span class="na">update</span><span class="o">(</span>
+</span><span class='line'>      <span class="n">userDetails</span><span class="o">,</span><span class="n">WhereBuilder</span><span class="o">.</span><span class="na">b</span><span class="o">(</span>
+</span><span class='line'>      <span class="s">&quot;phone&quot;</span><span class="o">,</span> <span class="s">&quot;=&quot;</span><span class="o">,</span> <span class="n">userDetails</span><span class="o">.</span><span class="na">getPhone</span><span class="o">()),</span>
+</span><span class='line'>      <span class="s">&quot;avatarname&quot;</span><span class="o">,</span><span class="s">&quot;username&quot;</span><span class="o">,</span><span class="s">&quot;gender&quot;</span><span class="o">,</span> <span class="s">&quot;birthday&quot;</span><span class="o">,</span>
+</span><span class='line'>      <span class="s">&quot;business&quot;</span><span class="o">,</span> <span class="s">&quot;grade&quot;</span><span class="o">,</span> <span class="s">&quot;city&quot;</span><span class="o">,</span> <span class="s">&quot;area&quot;</span><span class="o">,</span> <span class="s">&quot;address&quot;</span><span class="o">,</span>
+</span><span class='line'>      <span class="s">&quot;progress&quot;</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <ul>
@@ -128,10 +132,11 @@ userDetails：实体类的对象&mdash;&mdash;&mdash;&mdash;&mdash; &hellip;">
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>lastTime = dbUtils.findFirst(
-</span><span class='line'>  Selector.from(UserDetails.class)
-</span><span class='line'>          .where(WhereBuilder.b(
-</span><span class='line'>              "lastmodifytime", "=", time)));</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='java'><span class='line'> <span class="n">lastTime</span> <span class="o">=</span> <span class="n">dbUtils</span><span class="o">.</span><span class="na">findFirst</span><span class="o">(</span>
+</span><span class='line'>  <span class="n">Selector</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">UserDetails</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+</span><span class='line'>          <span class="o">.</span><span class="na">where</span><span class="o">(</span><span class="n">WhereBuilder</span><span class="o">.</span><span class="na">b</span><span class="o">(</span>
+</span><span class='line'>              <span class="s">&quot;lastmodifytime&quot;</span><span class="o">,</span> <span class="s">&quot;=&quot;</span><span class="o">,</span> <span class="n">time</span><span class="o">)));</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <ul>
@@ -143,7 +148,8 @@ userDetails：实体类的对象&mdash;&mdash;&mdash;&mdash;&mdash; &hellip;">
 <h5>2）findAll用法</h5>
 
 <figure class='code'><figcaption><span>代码</span><a href='http://xupingwei.github.io/'>链接 </a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mList = dbUtils.findAll(UserDetails.class);</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='java'><span class='line'> <span class="n">mList</span> <span class="o">=</span> <span class="n">dbUtils</span><span class="o">.</span><span class="na">findAll</span><span class="o">(</span><span class="n">UserDetails</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h5>3) findDbModelFirst</h5>
@@ -151,9 +157,10 @@ userDetails：实体类的对象&mdash;&mdash;&mdash;&mdash;&mdash; &hellip;">
 <figure class='code'><figcaption><span>代码</span><a href='http://xupingwei.github.io/'>链接 </a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>dbUtils.findDbModelFirst(
-</span><span class='line'>      Selector.from(Category.class)
-</span><span class='line'>              .select(new String[]{"lastupdate"}));</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='java'><span class='line'> <span class="n">dbUtils</span><span class="o">.</span><span class="na">findDbModelFirst</span><span class="o">(</span>
+</span><span class='line'>      <span class="n">Selector</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">Category</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+</span><span class='line'>              <span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="k">new</span> <span class="n">String</span><span class="o">[]{</span><span class="s">&quot;lastupdate&quot;</span><span class="o">}));</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <ul>

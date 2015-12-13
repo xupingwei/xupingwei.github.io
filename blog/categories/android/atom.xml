@@ -4,7 +4,7 @@
   <title><![CDATA[Category: android | 徐平伟Android技术博客]]></title>
   <link href="http://xupingwei.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://xupingwei.github.io/"/>
-  <updated>2015-12-13T20:06:45+08:00</updated>
+  <updated>2015-12-13T20:18:28+08:00</updated>
   <id>http://xupingwei.github.io/</id>
   <author>
     <name><![CDATA[徐平伟]]></name>
@@ -24,11 +24,11 @@
 
 <h5>1）根据官网save的方法很好用</h5>
 
-<ul>
-<li>dbUtils.save(userDetails);</li>
-<li>userDetails：实体类的对象&mdash;&mdash;&mdash;&mdash;&mdash;直接调用save方法进行保存，很容易不再啰嗦</li>
-</ul>
-
+<p><figure class='code'><figcaption><span>代码 <a href="http://xupingwei.github.io/">http://xupingwei.github.io/</a> 链接 </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'>    <span class="n">dbUtils</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">userDetails</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure>
+- userDetails：实体类的对象&mdash;&mdash;&mdash;&mdash;&mdash;直接调用save方法进行保存，很容易不再啰嗦</p>
 
 <h3>2.DbUtils中的update的用法</h3>
 
@@ -51,11 +51,11 @@
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='io'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>  <span class="n">dbUtils</span><span class="o">.</span><span class="n">update</span><span class="o">(</span>
-</span><span class='line'>  <span class="n">userDetails</span><span class="o">,</span><span class="n">WhereBuilder</span><span class="o">.</span><span class="n">b</span><span class="o">(</span>
-</span><span class='line'>  <span class="s">&quot;phone&quot;</span><span class="o">,</span> <span class="s">&quot;=&quot;</span><span class="o">,</span> <span class="n">userDetails</span><span class="o">.</span><span class="n">getPhone</span><span class="o">()),</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>  <span class="n">dbUtils</span><span class="o">.</span><span class="na">update</span><span class="o">(</span>
+</span><span class='line'>  <span class="n">userDetails</span><span class="o">,</span><span class="n">WhereBuilder</span><span class="o">.</span><span class="na">b</span><span class="o">(</span>
+</span><span class='line'>  <span class="s">&quot;phone&quot;</span><span class="o">,</span> <span class="s">&quot;=&quot;</span><span class="o">,</span> <span class="n">userDetails</span><span class="o">.</span><span class="na">getPhone</span><span class="o">()),</span>
 </span><span class='line'>  <span class="s">&quot;avatarname&quot;</span><span class="o">,</span><span class="s">&quot;username&quot;</span><span class="o">,</span><span class="s">&quot;gender&quot;</span><span class="o">,</span> <span class="s">&quot;birthday&quot;</span><span class="o">,</span>
 </span><span class='line'>  <span class="s">&quot;business&quot;</span><span class="o">,</span> <span class="s">&quot;grade&quot;</span><span class="o">,</span> <span class="s">&quot;city&quot;</span><span class="o">,</span> <span class="s">&quot;area&quot;</span><span class="o">,</span> <span class="s">&quot;address&quot;</span><span class="o">,</span>
 </span><span class='line'>  <span class="s">&quot;progress&quot;</span><span class="o">);</span>
@@ -88,11 +88,11 @@
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='io'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">lastTime</span> <span class="o">=</span> <span class="n">dbUtils</span><span class="o">.</span><span class="n">findFirst</span><span class="o">(</span>
-</span><span class='line'><span class="n">Selector</span><span class="o">.</span><span class="n">from</span><span class="o">(</span><span class="n">UserDetails</span><span class="o">.</span><span class="n">class</span><span class="o">)</span>
-</span><span class='line'>        <span class="o">.</span><span class="n">where</span><span class="o">(</span><span class="n">WhereBuilder</span><span class="o">.</span><span class="n">b</span><span class="o">(</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">lastTime</span> <span class="o">=</span> <span class="n">dbUtils</span><span class="o">.</span><span class="na">findFirst</span><span class="o">(</span>
+</span><span class='line'><span class="n">Selector</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">UserDetails</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">.</span><span class="na">where</span><span class="o">(</span><span class="n">WhereBuilder</span><span class="o">.</span><span class="na">b</span><span class="o">(</span>
 </span><span class='line'>            <span class="s">&quot;lastmodifytime&quot;</span><span class="o">,</span> <span class="s">&quot;=&quot;</span><span class="o">,</span> <span class="n">time</span><span class="o">)));</span>
 </span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
 </span><span class='line'>
@@ -114,9 +114,9 @@
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='io'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">mList</span> <span class="o">=</span> <span class="n">dbUtils</span><span class="o">.</span><span class="n">findAll</span><span class="o">(</span><span class="n">UserDetails</span><span class="o">.</span><span class="n">class</span><span class="o">);</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">mList</span> <span class="o">=</span> <span class="n">dbUtils</span><span class="o">.</span><span class="na">findAll</span><span class="o">(</span><span class="n">UserDetails</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 </span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
@@ -133,11 +133,11 @@
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='io'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">dbUtils</span><span class="o">.</span><span class="n">findDbModelFirst</span><span class="o">(</span>
-</span><span class='line'>    <span class="n">Selector</span><span class="o">.</span><span class="n">from</span><span class="o">(</span><span class="n">Category</span><span class="o">.</span><span class="n">class</span><span class="o">)</span>
-</span><span class='line'>            <span class="o">.</span><span class="n">select</span><span class="o">(</span><span class="n">new</span> <span class="n">String</span><span class="o">[]{</span><span class="s">&quot;lastupdate&quot;</span><span class="o">}));</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">dbUtils</span><span class="o">.</span><span class="na">findDbModelFirst</span><span class="o">(</span>
+</span><span class='line'>    <span class="n">Selector</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">Category</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+</span><span class='line'>            <span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="k">new</span> <span class="n">String</span><span class="o">[]{</span><span class="s">&quot;lastupdate&quot;</span><span class="o">}));</span>
 </span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
@@ -166,7 +166,7 @@
 <p>依赖：
 <figure class='code'><figcaption><span>在gradle文件中添加以来包名 <a href="http://xupingwei.github.io/">http://xupingwei.github.io/</a> 链接 </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='io'><span class='line'><span class="n">compile</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="o">;</span><span class="n">com</span><span class="o">.</span><span class="n">balysv</span><span class="err">:</span><span class="n">material</span><span class="o">-</span><span class="n">ripple</span><span class="err">:</span><span class="mf">1.0</span><span class="o">.</span><span class="mf">2</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="o">;</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">compile</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="o">;</span><span class="n">com</span><span class="o">.</span><span class="na">balysv</span><span class="o">:</span><span class="n">material</span><span class="o">-</span><span class="nl">ripple:</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">2</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="o">;</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
 <h3>3.文正代码：</h3>
@@ -200,34 +200,32 @@
 <span class='line-number'>26</span>
 <span class='line-number'>27</span>
 <span class='line-number'>28</span>
-<span class='line-number'>29</span>
-</pre></td><td class='code'><pre><code class='io'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">com</span><span class="o">.</span><span class="n">balysv</span><span class="o">.</span><span class="n">materialripple</span><span class="o">.</span><span class="n">MaterialRippleLayout</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">com</span><span class="o">.</span><span class="na">balysv</span><span class="o">.</span><span class="na">materialripple</span><span class="o">.</span><span class="na">MaterialRippleLayout</span>
+</span><span class='line'>    <span class="nl">android:</span><span class="n">layout_width</span><span class="o">=&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="mi">70</span><span class="n">dp</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;</span>
+</span><span class='line'>    <span class="nl">android:</span><span class="n">layout_height</span><span class="o">=&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="mi">50</span><span class="n">dp</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;</span>
+</span><span class='line'>    <span class="nl">android:</span><span class="n">layout_alignParentRight</span><span class="o">=&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="kc">true</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;</span>
+</span><span class='line'>    <span class="nl">android:</span><span class="n">layout_centerVertical</span><span class="o">=&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="kc">true</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;</span>
+</span><span class='line'>    <span class="nl">android:</span><span class="n">background</span><span class="o">=&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="nd">@null</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;</span>
+</span><span class='line'>    <span class="nl">android:</span><span class="n">paddingLeft</span><span class="o">=&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="mi">10</span><span class="n">dp</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;</span>
+</span><span class='line'>    <span class="nl">android:</span><span class="n">paddingRight</span><span class="o">=&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="mi">10</span><span class="n">dp</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;</span>
+</span><span class='line'>    <span class="nl">app:</span><span class="n">mrl_rippleColor</span><span class="o">=&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="nd">@color</span><span class="o">/</span><span class="n">white</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;</span>
+</span><span class='line'>    <span class="nl">app:</span><span class="n">mrl_rippleDelayClick</span><span class="o">=&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="kc">false</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;</span>
+</span><span class='line'>    <span class="nl">app:</span><span class="n">mrl_rippleDuration</span><span class="o">=&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="mi">300</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;</span>
+</span><span class='line'>    <span class="nl">app:</span><span class="n">mrl_rippleFadeDuration</span><span class="o">=&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="mi">75</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;</span>
+</span><span class='line'>    <span class="nl">app:</span><span class="n">mrl_rippleOverlay</span><span class="o">=&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="kc">true</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;&gt;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">android</span><span class="err">:</span><span class="n">layout_width</span><span class="o">=</span><span class="s">&quot;70dp&quot;</span>
-</span><span class='line'><span class="n">android</span><span class="err">:</span><span class="n">layout_height</span><span class="o">=</span><span class="s">&quot;50dp&quot;</span>
-</span><span class='line'><span class="n">android</span><span class="err">:</span><span class="n">layout_alignParentRight</span><span class="o">=</span><span class="s">&quot;true&quot;</span>
-</span><span class='line'><span class="n">android</span><span class="err">:</span><span class="n">layout_centerVertical</span><span class="o">=</span><span class="s">&quot;true&quot;</span>
-</span><span class='line'><span class="n">android</span><span class="err">:</span><span class="n">background</span><span class="o">=</span><span class="s">&quot;@null&quot;</span>
-</span><span class='line'><span class="n">android</span><span class="err">:</span><span class="n">paddingLeft</span><span class="o">=</span><span class="s">&quot;10dp&quot;</span>
-</span><span class='line'><span class="n">android</span><span class="err">:</span><span class="n">paddingRight</span><span class="o">=</span><span class="s">&quot;10dp&quot;</span>
-</span><span class='line'><span class="n">app</span><span class="err">:</span><span class="n">mrl_rippleColor</span><span class="o">=</span><span class="s">&quot;@color/white&quot;</span>
-</span><span class='line'><span class="n">app</span><span class="err">:</span><span class="n">mrl_rippleDelayClick</span><span class="o">=</span><span class="s">&quot;false&quot;</span>
-</span><span class='line'><span class="n">app</span><span class="err">:</span><span class="n">mrl_rippleDuration</span><span class="o">=</span><span class="s">&quot;300&quot;</span>
-</span><span class='line'><span class="n">app</span><span class="err">:</span><span class="n">mrl_rippleFadeDuration</span><span class="o">=</span><span class="s">&quot;75&quot;</span>
-</span><span class='line'><span class="n">app</span><span class="err">:</span><span class="n">mrl_rippleOverlay</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">Button</span> <span class="n">android</span><span class="err">:</span><span class="n">id</span><span class="o">=</span><span class="s">&quot;@+id/bt_my_profile_save&quot;</span>
-</span><span class='line'>  <span class="n">android</span><span class="err">:</span><span class="n">layout_width</span><span class="o">=</span><span class="s">&quot;match_parent&quot;</span>
-</span><span class='line'>  <span class="n">android</span><span class="err">:</span><span class="n">layout_height</span><span class="o">=</span><span class="s">&quot;match_parent&quot;</span>
-</span><span class='line'>  <span class="n">android</span><span class="err">:</span><span class="n">background</span><span class="o">=</span><span class="s">&quot;@null&quot;</span>
-</span><span class='line'>  <span class="n">android</span><span class="err">:</span><span class="n">text</span><span class="o">=</span><span class="s">&quot;保存&quot;</span>
-</span><span class='line'>  <span class="n">android</span><span class="err">:</span><span class="n">textColor</span><span class="o">=</span><span class="s">&quot;@color/white&quot;</span>
-</span><span class='line'>  <span class="n">android</span><span class="err">:</span><span class="n">textSize</span><span class="o">=</span><span class="s">&quot;16sp&quot;</span> <span class="o">/&amp;</span><span class="n">gt</span><span class="o">;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">Button</span> <span class="nl">android:</span><span class="n">id</span><span class="o">=</span><span class="s">&quot;@+id/bt_my_profile_save&quot;</span>
+</span><span class='line'>  <span class="nl">android:</span><span class="n">layout_width</span><span class="o">=</span><span class="s">&quot;match_parent&quot;</span>
+</span><span class='line'>  <span class="nl">android:</span><span class="n">layout_height</span><span class="o">=</span><span class="s">&quot;match_parent&quot;</span>
+</span><span class='line'>  <span class="nl">android:</span><span class="n">background</span><span class="o">=</span><span class="s">&quot;@null&quot;</span>
+</span><span class='line'>  <span class="nl">android:</span><span class="n">text</span><span class="o">=</span><span class="s">&quot;保存&quot;</span>
+</span><span class='line'>  <span class="nl">android:</span><span class="n">textColor</span><span class="o">=</span><span class="s">&quot;@color/white&quot;</span>
+</span><span class='line'>  <span class="nl">android:</span><span class="n">textSize</span><span class="o">=</span><span class="s">&quot;16sp&quot;</span> <span class="o">/&amp;</span><span class="n">gt</span><span class="o">;</span>
 </span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">com</span><span class="o">.</span><span class="n">balysv</span><span class="o">.</span><span class="n">materialripple</span><span class="o">.</span><span class="n">MaterialRippleLayout</span><span class="o">&gt;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">com</span><span class="o">.</span><span class="na">balysv</span><span class="o">.</span><span class="na">materialripple</span><span class="o">.</span><span class="na">MaterialRippleLayout</span><span class="o">&gt;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></p>
