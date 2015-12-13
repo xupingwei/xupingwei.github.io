@@ -1,0 +1,198 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Android5.0+点击Button的水波效果 - 徐平伟Android技术博客</title>
+	<meta name="author" content="徐平伟">
+
+	
+	<meta name="description" content="Android5.0+点击Button的水波效果 1.开发工具：开发工具：Android studio 2.在build.gradle文件中添加 依赖： 在gradle文件中添加以来包名链接 1
+compile 'com.balysv:material-ripple:1.0.2' 3.文正代码： &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="徐平伟Android技术博客" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">徐平伟Android技术博客</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">首页</a></li>
+	<li><a href="/blog/archives">归档</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">首页</a></li>
+	<li><a href="/blog/archives">归档</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="https://www.baidu.com" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:xupingwei.github.io">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="https://www.baidu.com" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:xupingwei.github.io">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Android5.0+点击Button的水波效果</h2>
+	<div class="entry-content"><h1>Android5.0+点击Button的水波效果</h1>
+
+<h3>1.开发工具：开发工具：Android studio</h3>
+
+<h3>2.在build.gradle文件中添加</h3>
+
+<p>依赖：</p>
+
+<figure class='code'><figcaption><span>在gradle文件中添加以来包名</span><a href='http://xupingwei.github.io/'>链接 </a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>compile 'com.balysv:material-ripple:1.0.2'</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>3.文正代码：</h3>
+
+<figure class='code'><figcaption><span>正文代码 </span><a href='http://xupingwei.github.io/'>链接 </a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;com.balysv.materialripple.MaterialRippleLayout
+</span><span class='line'>
+</span><span class='line'>  android:layout_width="70dp" 
+</span><span class='line'>  android:layout_height="50dp" 
+</span><span class='line'>  android:layout_alignParentRight="true" 
+</span><span class='line'>  android:layout_centerVertical="true" 
+</span><span class='line'>  android:background="@null"
+</span><span class='line'>  android:paddingLeft="10dp" 
+</span><span class='line'>  android:paddingRight="10dp" 
+</span><span class='line'>  app:mrl_rippleColor="@color/white" 
+</span><span class='line'>  app:mrl_rippleDelayClick="false" 
+</span><span class='line'>  app:mrl_rippleDuration="300" 
+</span><span class='line'>  app:mrl_rippleFadeDuration="75" 
+</span><span class='line'>  app:mrl_rippleOverlay="true">
+</span><span class='line'>  
+</span><span class='line'>  &lt;Button android:id="@+id/bt_my_profile_save" 
+</span><span class='line'>      android:layout_width="match_parent" 
+</span><span class='line'>      android:layout_height="match_parent" 
+</span><span class='line'>      android:background="@null"
+</span><span class='line'>      android:text="保存" 
+</span><span class='line'>      android:textColor="@color/white"
+</span><span class='line'>      android:textSize="16sp" />
+</span><span class='line'>
+</span><span class='line'>&lt;/com.balysv.materialripple.MaterialRippleLayout></span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+Dec 13th, 2015</div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/android/'>android</a>
+
+
+</div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+		
+		
+		
+		
+
+		
+	</div>
+	
+</div>
+
+
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2015
+
+    徐平伟
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+
+
+
+</body>
+</html>

@@ -7,8 +7,8 @@
 	<meta name="author" content="徐平伟">
 
 	
-	<meta name="description" content="Android5.0+点击Button的水波效果 1.开发工具：开发工具：Android studio 2.在build.gradle文件中添加 依赖： 在gradle文件中添加以来包名链接 1
-compile 'com.balysv:material-ripple:1.0.2' 3.文正代码 &hellip;">
+	<meta name="description" content="xUtils在开发过程中DbUtils的使用 1.DbUtils中的save的用法 1）根据官网save的方法很好用 dbUtils.save(userDetails);
+userDetails：实体类的对象&mdash;&mdash;&mdash;&mdash;&mdash; &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -80,7 +80,127 @@ compile 'com.balysv:material-ripple:1.0.2' 3.文正代码 &hellip;">
     <article class="post">
 	<h2 class="title">
 		
-		<a href="/blog/2015/12/13/pingwei/">
+		<a href="/blog/2015/12/13/02/">
+		
+			xUtils在开发过程中DbUtils的使用</a>
+	</h2>
+	<div class="entry-content">
+		<h1>xUtils在开发过程中DbUtils的使用</h1>
+
+<h3>1.DbUtils中的save的用法</h3>
+
+<h5>1）根据官网save的方法很好用</h5>
+
+<ul>
+<li>dbUtils.save(userDetails);</li>
+<li>userDetails：实体类的对象&mdash;&mdash;&mdash;&mdash;&mdash;直接调用save方法进行保存，很容易不再啰嗦</li>
+</ul>
+
+
+<h3>2.DbUtils中的update的用法</h3>
+
+<h5>1）update用法</h5>
+
+<ul>
+<li>在调用dbUtils.update(&hellip;)时，有时会出现NOT FOUND &ldquo;id"的错误&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-这是因为在执行update方法时，传入的参数出现错误</li>
+<li>正确的用法是：</li>
+</ul>
+
+
+<figure class='code'><figcaption><span>代码 </span><a href='http://xupingwei.github.io/'>链接 </a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>dbUtils.update(userDetails,WhereBuilder.b("phone", "=", userDetails.getPhone()), "avatarname","username","gender", "birthday", "business", "grade", "city", "area", "address", "progress");</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>userDetails:需要跟新的实体类对象</li>
+<li>&ldquo;phone"：根据表中的列名称进行跟新</li>
+<li>userDetails.getPhone():称更新实体类对象的唯一值</li>
+<li>&ldquo;avatarname"，"username"：需要更新的列名称</li>
+</ul>
+
+
+<h3>3.DbUtils中的find的用法：</h3>
+
+<figure class='code'><figcaption><span>正文代码 </span><a href='http://xupingwei.github.io/'>链接 </a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;com.balysv.materialripple.MaterialRippleLayout
+</span><span class='line'>
+</span><span class='line'>  android:layout_width="70dp" 
+</span><span class='line'>  android:layout_height="50dp" 
+</span><span class='line'>  android:layout_alignParentRight="true" 
+</span><span class='line'>  android:layout_centerVertical="true" 
+</span><span class='line'>  android:background="@null"
+</span><span class='line'>  android:paddingLeft="10dp" 
+</span><span class='line'>  android:paddingRight="10dp" 
+</span><span class='line'>  app:mrl_rippleColor="@color/white" 
+</span><span class='line'>  app:mrl_rippleDelayClick="false" 
+</span><span class='line'>  app:mrl_rippleDuration="300" 
+</span><span class='line'>  app:mrl_rippleFadeDuration="75" 
+</span><span class='line'>  app:mrl_rippleOverlay="true">
+</span><span class='line'>  
+</span><span class='line'>  &lt;Button android:id="@+id/bt_my_profile_save" 
+</span><span class='line'>      android:layout_width="match_parent" 
+</span><span class='line'>      android:layout_height="match_parent" 
+</span><span class='line'>      android:background="@null"
+</span><span class='line'>      android:text="保存" 
+</span><span class='line'>      android:textColor="@color/white"
+</span><span class='line'>      android:textSize="16sp" />
+</span><span class='line'>
+</span><span class='line'>&lt;/com.balysv.materialripple.MaterialRippleLayout></span></code></pre></td></tr></table></div></figure>
+
+
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+Dec 13th, 2015</div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/android/'>android</a>
+
+
+</div>
+	
+</div>
+</article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2015/12/13/01/">
 		
 			Android5.0+点击Button的水波效果</a>
 	</h2>
