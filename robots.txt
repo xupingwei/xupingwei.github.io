@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://xupingwei.github.io/sitemap.xml 
+Sitemap: http://www.pingwei.me/sitemap.xml 

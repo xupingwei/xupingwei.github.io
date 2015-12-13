@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://xupingwei.github.io/blog/2015/12/14/01/</loc>
+    <loc>http://www.pingwei.me/blog/2015/12/14/01/</loc>
     <lastmod>2015-12-14T17:18:56+08:00</lastmod>
   </url>
   <url>
-    <loc>http://xupingwei.github.io/blog/2015/12/13/03/</loc>
+    <loc>http://www.pingwei.me/blog/2015/12/13/03/</loc>
     <lastmod>2015-12-13T17:18:56+08:00</lastmod>
   </url>
   <url>
-    <loc>http://xupingwei.github.io/blog/2015/12/13/02/</loc>
+    <loc>http://www.pingwei.me/blog/2015/12/13/02/</loc>
     <lastmod>2015-12-13T17:18:56+08:00</lastmod>
   </url>
   <url>
-    <loc>http://xupingwei.github.io/blog/2015/12/13/01/</loc>
+    <loc>http://www.pingwei.me/blog/2015/12/13/01/</loc>
     <lastmod>2015-12-13T17:18:56+08:00</lastmod>
   </url>
   <url>
-    <loc>http://xupingwei.github.io/blog/archives/</loc>
+    <loc>http://www.pingwei.me/blog/archives/</loc>
   </url>
   <url>
-    <loc>http://xupingwei.github.io/</loc>
+    <loc>http://www.pingwei.me/</loc>
   </url>
   <url>
-    <loc>http://xupingwei.github.io/blog/categories/android/</loc>
+    <loc>http://www.pingwei.me/about/</loc>
+  </url>
+  <url>
+    <loc>http://www.pingwei.me/blog/categories/android/</loc>
   </url>
 </urlset>
