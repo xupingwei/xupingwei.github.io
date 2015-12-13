@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://yoursite.com/atom.xml" rel="self"/>
-  <link href="http://yoursite.com/"/>
-  <updated>2015-12-13T17:59:28+08:00</updated>
-  <id>http://yoursite.com/</id>
+  <title><![CDATA[徐平伟Android技术博客]]></title>
+  <link href="http://xupingwei.github.io/atom.xml" rel="self"/>
+  <link href="http://xupingwei.github.io/"/>
+  <updated>2015-12-13T19:20:04+08:00</updated>
+  <id>http://xupingwei.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[徐平伟]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[徐平伟]]></title>
-    <link href="http://yoursite.com/blog/2015/12/13/pingwei/"/>
+    <link href="http://xupingwei.github.io/blog/2015/12/13/pingwei/"/>
     <updated>2015-12-13T17:18:56+08:00</updated>
-    <id>http://yoursite.com/blog/2015/12/13/pingwei</id>
+    <id>http://xupingwei.github.io/blog/2015/12/13/pingwei</id>
     <content type="html"><![CDATA[<h1>你好</h1>
 
 <h2>您可以学到你想要的</h2>
