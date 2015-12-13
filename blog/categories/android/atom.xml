@@ -4,7 +4,7 @@
   <title><![CDATA[Category: android | 徐平伟Android技术博客]]></title>
   <link href="http://xupingwei.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://xupingwei.github.io/"/>
-  <updated>2015-12-13T20:49:01+08:00</updated>
+  <updated>2015-12-13T21:20:13+08:00</updated>
   <id>http://xupingwei.github.io/</id>
   <author>
     <name><![CDATA[徐平伟]]></name>
@@ -12,6 +12,76 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[RecyclerView上拉加载更多数据 ]]></title>
+    <link href="http://xupingwei.github.io/blog/2015/12/13/03/"/>
+    <updated>2015-12-13T17:18:56+08:00</updated>
+    <id>http://xupingwei.github.io/blog/2015/12/13/03</id>
+    <content type="html"><![CDATA[<h1>RecyclerView上拉加载更多数据</h1>
+
+<p><figure class='code'><figcaption><span>代码 <a href="http://blog.csdn.net/pingwei124/article/details/46007505">http://blog.csdn.net/pingwei124/article/details/46007505</a> 链接 </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">mRecyclerView</span><span class="o">.</span><span class="na">setOnScrollListener</span><span class="o">(</span><span class="k">new</span> <span class="n">RecyclerView</span><span class="o">.</span><span class="na">OnScrollListener</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">int</span><span class="o">[]</span> <span class="n">lastVisibleItem</span><span class="o">;</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">lastItem</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nd">@Override</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onScrollStateChanged</span><span class="o">(</span><span class="n">RecyclerView</span>           <span class="n">recyclerView</span><span class="o">,</span> <span class="kt">int</span> <span class="n">newState</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>   <span class="kd">super</span><span class="o">.</span><span class="na">onScrollStateChanged</span><span class="o">(</span><span class="n">recyclerView</span><span class="o">,</span><span class="n">newState</span><span class="o">);</span>
+</span><span class='line'>   <span class="k">if</span> <span class="o">(</span><span class="n">newState</span> <span class="o">==</span> <span class="n">RecyclerView</span><span class="o">.</span><span class="na">SCROLL_STATE_IDLE</span> <span class="o">&amp;</span><span class="n">amp</span><span class="o">;&amp;</span><span class="n">amp</span><span class="o">;</span> <span class="n">lastItem</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span>            <span class="n">waterFallAdapter</span><span class="o">.</span><span class="na">getItemCount</span><span class="o">())</span> <span class="o">{</span>
+</span><span class='line'>        <span class="n">loadingLayout</span><span class="o">.</span><span class="na">setVisibility</span><span class="o">(</span><span class="n">View</span><span class="o">.</span><span class="na">VISIBLE</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">Message</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Message</span><span class="o">();</span>
+</span><span class='line'>        <span class="n">message</span><span class="o">.</span><span class="na">what</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+</span><span class='line'>        <span class="n">handler</span><span class="o">.</span><span class="na">sendMessageDelayed</span><span class="o">(</span><span class="n">message</span><span class="o">,</span> <span class="mi">1000</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">LogUtils</span><span class="o">.</span><span class="na">e</span><span class="o">(</span><span class="s">&quot;数据加载更多:&quot;</span> <span class="o">+</span> <span class="n">lastItem</span><span class="o">);</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nd">@Override</span>
+</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onScrolled</span><span class="o">(</span><span class="n">RecyclerView</span> <span class="n">recyclerView</span><span class="o">,</span> <span class="kt">int</span> <span class="n">dx</span><span class="o">,</span> <span class="kt">int</span> <span class="n">dy</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kd">super</span><span class="o">.</span><span class="na">onScrolled</span><span class="o">(</span><span class="n">recyclerView</span><span class="o">,</span> <span class="n">dx</span><span class="o">,</span> <span class="n">dy</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">lastVisibleItem</span> <span class="o">=</span> <span class="n">mLayoutManager</span><span class="o">.</span><span class="na">findLastCompletelyVisibleItemPositions</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">lastItem</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">lastVisibleItem</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">lastVisibleItem</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;});</span>
+</span></code></pre></td></tr></table></div></figure></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[xUtils在开发过程中DbUtils的使用]]></title>
