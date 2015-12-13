@@ -4,7 +4,7 @@
   <title><![CDATA[Category: android | 徐平伟Android技术博客]]></title>
   <link href="http://xupingwei.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://xupingwei.github.io/"/>
-  <updated>2015-12-13T19:56:50+08:00</updated>
+  <updated>2015-12-13T20:06:45+08:00</updated>
   <id>http://xupingwei.github.io/</id>
   <author>
     <name><![CDATA[徐平伟]]></name>
@@ -36,7 +36,7 @@
 
 <ul>
 <li>在调用dbUtils.update(&hellip;)时，有时会出现NOT FOUND &ldquo;id"的错误&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-这是因为在执行update方法时，传入的参数出现错误</li>
-<li>正确的用法是：
+<li><p>正确的用法是：
 <figure class='code'><figcaption><span>代码  <a href="http://xupingwei.github.io/">http://xupingwei.github.io/</a> 链接 </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -45,11 +45,23 @@
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='io'><span class='line'><span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='io'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>  <span class="n">dbUtils</span><span class="o">.</span><span class="n">update</span><span class="o">(</span>
+</span><span class='line'>  <span class="n">userDetails</span><span class="o">,</span><span class="n">WhereBuilder</span><span class="o">.</span><span class="n">b</span><span class="o">(</span>
+</span><span class='line'>  <span class="s">&quot;phone&quot;</span><span class="o">,</span> <span class="s">&quot;=&quot;</span><span class="o">,</span> <span class="n">userDetails</span><span class="o">.</span><span class="n">getPhone</span><span class="o">()),</span>
+</span><span class='line'>  <span class="s">&quot;avatarname&quot;</span><span class="o">,</span><span class="s">&quot;username&quot;</span><span class="o">,</span><span class="s">&quot;gender&quot;</span><span class="o">,</span> <span class="s">&quot;birthday&quot;</span><span class="o">,</span>
+</span><span class='line'>  <span class="s">&quot;business&quot;</span><span class="o">,</span> <span class="s">&quot;grade&quot;</span><span class="o">,</span> <span class="s">&quot;city&quot;</span><span class="o">,</span> <span class="s">&quot;area&quot;</span><span class="o">,</span> <span class="s">&quot;address&quot;</span><span class="o">,</span>
+</span><span class='line'>  <span class="s">&quot;progress&quot;</span><span class="o">);</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
 </span><span class='line'><span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">dbUtils</span><span class="o">.</span><span class="n">update</span><span class="o">(</span><span class="n">userDetails</span><span class="o">,</span><span class="n">WhereBuilder</span><span class="o">.</span><span class="n">b</span><span class="o">(&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">phone</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;=&amp;</span><span class="n">rdquo</span><span class="o">;,</span> <span class="n">userDetails</span><span class="o">.</span><span class="n">getPhone</span><span class="o">()),</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">avatarname</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;,&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">username</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;,&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">gender</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">birthday</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">business</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">grade</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">city</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">area</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">address</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">progress</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;);&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></p>
@@ -64,7 +76,9 @@
 
 <h3>3.DbUtils中的find的用法：</h3>
 
-<p><figure class='code'><figcaption><span>正文代码  <a href="http://xupingwei.github.io/">http://xupingwei.github.io/</a> 链接 </span></figcaption>
+<h5>1) findFirst用法</h5>
+
+<p><figure class='code'><figcaption><span>代码  <a href="http://xupingwei.github.io/">http://xupingwei.github.io/</a> 链接 </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -74,56 +88,67 @@
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
 </pre></td><td class='code'><pre><code class='io'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">com</span><span class="o">.</span><span class="n">balysv</span><span class="o">.</span><span class="n">materialripple</span><span class="o">.</span><span class="n">MaterialRippleLayout</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">android</span><span class="err">:</span><span class="n">layout_width</span><span class="o">=</span><span class="s">&quot;70dp&quot;</span>
-</span><span class='line'><span class="n">android</span><span class="err">:</span><span class="n">layout_height</span><span class="o">=</span><span class="s">&quot;50dp&quot;</span>
-</span><span class='line'><span class="n">android</span><span class="err">:</span><span class="n">layout_alignParentRight</span><span class="o">=</span><span class="s">&quot;true&quot;</span>
-</span><span class='line'><span class="n">android</span><span class="err">:</span><span class="n">layout_centerVertical</span><span class="o">=</span><span class="s">&quot;true&quot;</span>
-</span><span class='line'><span class="n">android</span><span class="err">:</span><span class="n">background</span><span class="o">=</span><span class="s">&quot;@null&quot;</span>
-</span><span class='line'><span class="n">android</span><span class="err">:</span><span class="n">paddingLeft</span><span class="o">=</span><span class="s">&quot;10dp&quot;</span>
-</span><span class='line'><span class="n">android</span><span class="err">:</span><span class="n">paddingRight</span><span class="o">=</span><span class="s">&quot;10dp&quot;</span>
-</span><span class='line'><span class="n">app</span><span class="err">:</span><span class="n">mrl_rippleColor</span><span class="o">=</span><span class="s">&quot;@color/white&quot;</span>
-</span><span class='line'><span class="n">app</span><span class="err">:</span><span class="n">mrl_rippleDelayClick</span><span class="o">=</span><span class="s">&quot;false&quot;</span>
-</span><span class='line'><span class="n">app</span><span class="err">:</span><span class="n">mrl_rippleDuration</span><span class="o">=</span><span class="s">&quot;300&quot;</span>
-</span><span class='line'><span class="n">app</span><span class="err">:</span><span class="n">mrl_rippleFadeDuration</span><span class="o">=</span><span class="s">&quot;75&quot;</span>
-</span><span class='line'><span class="n">app</span><span class="err">:</span><span class="n">mrl_rippleOverlay</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">Button</span> <span class="n">android</span><span class="err">:</span><span class="n">id</span><span class="o">=</span><span class="s">&quot;@+id/bt_my_profile_save&quot;</span>
-</span><span class='line'>  <span class="n">android</span><span class="err">:</span><span class="n">layout_width</span><span class="o">=</span><span class="s">&quot;match_parent&quot;</span>
-</span><span class='line'>  <span class="n">android</span><span class="err">:</span><span class="n">layout_height</span><span class="o">=</span><span class="s">&quot;match_parent&quot;</span>
-</span><span class='line'>  <span class="n">android</span><span class="err">:</span><span class="n">background</span><span class="o">=</span><span class="s">&quot;@null&quot;</span>
-</span><span class='line'>  <span class="n">android</span><span class="err">:</span><span class="n">text</span><span class="o">=</span><span class="s">&quot;保存&quot;</span>
-</span><span class='line'>  <span class="n">android</span><span class="err">:</span><span class="n">textColor</span><span class="o">=</span><span class="s">&quot;@color/white&quot;</span>
-</span><span class='line'>  <span class="n">android</span><span class="err">:</span><span class="n">textSize</span><span class="o">=</span><span class="s">&quot;16sp&quot;</span> <span class="o">/&amp;</span><span class="n">gt</span><span class="o">;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">lastTime</span> <span class="o">=</span> <span class="n">dbUtils</span><span class="o">.</span><span class="n">findFirst</span><span class="o">(</span>
+</span><span class='line'><span class="n">Selector</span><span class="o">.</span><span class="n">from</span><span class="o">(</span><span class="n">UserDetails</span><span class="o">.</span><span class="n">class</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">.</span><span class="n">where</span><span class="o">(</span><span class="n">WhereBuilder</span><span class="o">.</span><span class="n">b</span><span class="o">(</span>
+</span><span class='line'>            <span class="s">&quot;lastmodifytime&quot;</span><span class="o">,</span> <span class="s">&quot;=&quot;</span><span class="o">,</span> <span class="n">time</span><span class="o">)));</span>
 </span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">com</span><span class="o">.</span><span class="n">balysv</span><span class="o">.</span><span class="n">materialripple</span><span class="o">.</span><span class="n">MaterialRippleLayout</span><span class="o">&gt;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></p>
+
+<ul>
+<li>Selector.from(UserDetails.class)：查找哪张表（这里查找的是UserDetails这张表）</li>
+<li>WhereBuilder.b(&ldquo;lastmodifytime&rdquo;, &ldquo;=&rdquo;, time)：条件查询</li>
+</ul>
+
+
+<h5>2）findAll用法</h5>
+
+<p><figure class='code'><figcaption><span>代码 <a href="http://xupingwei.github.io/">http://xupingwei.github.io/</a> 链接 </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='io'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">mList</span> <span class="o">=</span> <span class="n">dbUtils</span><span class="o">.</span><span class="n">findAll</span><span class="o">(</span><span class="n">UserDetails</span><span class="o">.</span><span class="n">class</span><span class="o">);</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<h5>3) findDbModelFirst</h5>
+
+<p><figure class='code'><figcaption><span>代码 <a href="http://xupingwei.github.io/">http://xupingwei.github.io/</a> 链接 </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='io'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">dbUtils</span><span class="o">.</span><span class="n">findDbModelFirst</span><span class="o">(</span>
+</span><span class='line'>    <span class="n">Selector</span><span class="o">.</span><span class="n">from</span><span class="o">(</span><span class="n">Category</span><span class="o">.</span><span class="n">class</span><span class="o">)</span>
+</span><span class='line'>            <span class="o">.</span><span class="n">select</span><span class="o">(</span><span class="n">new</span> <span class="n">String</span><span class="o">[]{</span><span class="s">&quot;lastupdate&quot;</span><span class="o">}));</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<ul>
+<li>DbModel&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-相当于表的一个视图，把其当做视图看待</li>
+<li>select(new String[]{&ldquo;lastupdate&rdquo;})&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-这个视图中包含的属性，这里包含的属性是“lastupdate”</li>
+<li>如果需要包含其他的属性，直接在new String[]{}里增加表的字段</li>
+</ul>
+
 ]]></content>
   </entry>
   

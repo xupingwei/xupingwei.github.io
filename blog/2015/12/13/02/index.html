@@ -99,7 +99,17 @@ userDetails：实体类的对象&mdash;&mdash;&mdash;&mdash;&mdash; &hellip;">
 
 
 <figure class='code'><figcaption><span>代码 </span><a href='http://xupingwei.github.io/'>链接 </a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>dbUtils.update(userDetails,WhereBuilder.b("phone", "=", userDetails.getPhone()), "avatarname","username","gender", "birthday", "business", "grade", "city", "area", "address", "progress");</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>dbUtils.update(
+</span><span class='line'>      userDetails,WhereBuilder.b(
+</span><span class='line'>      "phone", "=", userDetails.getPhone()), 
+</span><span class='line'>      "avatarname","username","gender", "birthday", 
+</span><span class='line'>      "business", "grade", "city", "area", "address", 
+</span><span class='line'>      "progress");</span></code></pre></td></tr></table></div></figure>
 
 
 <ul>
@@ -112,56 +122,45 @@ userDetails：实体类的对象&mdash;&mdash;&mdash;&mdash;&mdash; &hellip;">
 
 <h3>3.DbUtils中的find的用法：</h3>
 
-<figure class='code'><figcaption><span>正文代码 </span><a href='http://xupingwei.github.io/'>链接 </a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<h5>1) findFirst用法</h5>
+
+<figure class='code'><figcaption><span>代码 </span><a href='http://xupingwei.github.io/'>链接 </a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;com.balysv.materialripple.MaterialRippleLayout
-</span><span class='line'>
-</span><span class='line'>  android:layout_width="70dp" 
-</span><span class='line'>  android:layout_height="50dp" 
-</span><span class='line'>  android:layout_alignParentRight="true" 
-</span><span class='line'>  android:layout_centerVertical="true" 
-</span><span class='line'>  android:background="@null"
-</span><span class='line'>  android:paddingLeft="10dp" 
-</span><span class='line'>  android:paddingRight="10dp" 
-</span><span class='line'>  app:mrl_rippleColor="@color/white" 
-</span><span class='line'>  app:mrl_rippleDelayClick="false" 
-</span><span class='line'>  app:mrl_rippleDuration="300" 
-</span><span class='line'>  app:mrl_rippleFadeDuration="75" 
-</span><span class='line'>  app:mrl_rippleOverlay="true">
-</span><span class='line'>  
-</span><span class='line'>  &lt;Button android:id="@+id/bt_my_profile_save" 
-</span><span class='line'>      android:layout_width="match_parent" 
-</span><span class='line'>      android:layout_height="match_parent" 
-</span><span class='line'>      android:background="@null"
-</span><span class='line'>      android:text="保存" 
-</span><span class='line'>      android:textColor="@color/white"
-</span><span class='line'>      android:textSize="16sp" />
-</span><span class='line'>
-</span><span class='line'>&lt;/com.balysv.materialripple.MaterialRippleLayout></span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>lastTime = dbUtils.findFirst(
+</span><span class='line'>  Selector.from(UserDetails.class)
+</span><span class='line'>          .where(WhereBuilder.b(
+</span><span class='line'>              "lastmodifytime", "=", time)));</span></code></pre></td></tr></table></div></figure>
 
 
+<ul>
+<li>Selector.from(UserDetails.class)：查找哪张表（这里查找的是UserDetails这张表）</li>
+<li>WhereBuilder.b(&ldquo;lastmodifytime&rdquo;, &ldquo;=&rdquo;, time)：条件查询</li>
+</ul>
+
+
+<h5>2）findAll用法</h5>
+
+<figure class='code'><figcaption><span>代码</span><a href='http://xupingwei.github.io/'>链接 </a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mList = dbUtils.findAll(UserDetails.class);</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>3) findDbModelFirst</h5>
+
+<figure class='code'><figcaption><span>代码</span><a href='http://xupingwei.github.io/'>链接 </a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>dbUtils.findDbModelFirst(
+</span><span class='line'>      Selector.from(Category.class)
+</span><span class='line'>              .select(new String[]{"lastupdate"}));</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>DbModel&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-相当于表的一个视图，把其当做视图看待</li>
+<li>select(new String[]{&ldquo;lastupdate&rdquo;})&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-这个视图中包含的属性，这里包含的属性是“lastupdate”</li>
+<li>如果需要包含其他的属性，直接在new String[]{}里增加表的字段</li>
+</ul>
 
 </div>
 
@@ -192,11 +191,44 @@ Dec 13th, 2015</div>
 		
 
 		
+		<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_tqq"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+		
 	</div>
 	
 </div>
 
 
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="/blog/2015/12/13/02" data-title="xUtils在开发过程中DbUtils的使用" data-url="http://xupingwei.github.io/blog/2015/12/13/02/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xupingwei"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end --></div>
+</section>
 </div>
 	<footer id="footer" class="inner">Copyright &copy; 2015
 
